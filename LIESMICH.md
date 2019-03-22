@@ -1,11 +1,13 @@
 # Maschinenbelegungsplan
 Wir betrachten einen Produktionsprozess bestehend aus den Maschinen A, B und C. Weiterhin sind einige Aufträge mit zugehörigen Teilaufgaben gegeben. 
-Jeder Auftrag ist bestimmt durch die Merkmale Teilauftrag (Task), Maschine (machine) und die Dauer (time). Zum Beispiel: 
+Jeder Auftrag ist bestimmt durch die Merkmale Teilauftrag (Task), Maschine (machine) und die Dauer (time). Zum Beispiel:
+
 |Task|Machine|Time|
 |:---:|:---:|:---:|
 | 1 | A | 3 |
 | 2 | B | 2 |
 | 3 | C | 2 |
+
 Ziel ist die Minimierung der Produktionsdauer aller Aufträge unter einer Vielzahl von Nebenbedingungen. Diese sind zum Beispiel:
 * eine Machine kann immer nur einen Teilauftrag gleichzeitig ausführen, 
 * ein begonnener Teilauftrag muss beendet werden,
