@@ -1,6 +1,3 @@
-from pyomo.environ import *
-import pandas as pd
-
 """Example for a job shop problem schedule"""
 
 from pyomo.opt import SolverFactory
@@ -122,12 +119,7 @@ instance = m.create_instance()
 results = opt.solve(instance, symbolic_solver_labels=True, tee=True,
                     load_solutions=True)
 
-# Show results
-for task in tasks:
-    for machine in machines:
-        if machine in tasks[task]['machine']:
-            print(task, machine, instance.start[task, machine].value)
-
+# Show result
 print('makespan: ', instance.makespan.value)
 
 # Plot Gantt chart
@@ -144,5 +136,10 @@ fig = ff.create_gantt(df, title='Job Shop', colors=colors,
                       showgrid_x=True, showgrid_y=True, index_col='Resource',
                       show_colorbar=True, group_tasks=True)
 fig['layout']['xaxis'].update({'type': None})
+fig['layout']['xaxis'].update({'title': 'time'})
+fig['layout']['yaxis'].update({'title': 'machine'})
+fig['layout']['xaxis'].update({'range': [-1, 17]})
+fig['layout']['yaxis'].update({'range': [-0.5, 2.5]})
+fig["layout"].update(autosize=True)
 plot(fig, filename='job_shop', image="png",
      image_filename="job_shop", auto_open=True)
